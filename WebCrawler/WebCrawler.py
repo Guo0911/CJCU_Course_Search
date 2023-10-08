@@ -1,6 +1,5 @@
-import time, random, json
+import time, json
 import urllib.request as req
-from pymysql import NULL
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -16,6 +15,7 @@ dep_id = {}
 
 
 def get_select_value(element_id):  # 獲取專業課程或共同課程的課程代碼前綴
+    time.sleep(1)
     select = chrome.find_element(By.ID, element_id)
 
     option = select.find_elements(By.TAG_NAME, "option")

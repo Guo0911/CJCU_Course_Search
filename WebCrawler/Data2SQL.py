@@ -10,7 +10,7 @@ db_settings = {
     "port": 3306,
     "user": "username",
     "password": "password",
-    "db": "course",
+    "db": "dbname",
     "charset": "utf8",
 }
 

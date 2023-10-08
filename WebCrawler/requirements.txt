@@ -1,0 +1,5 @@
+# pip install -r requirements.txt
+
+selenium==4.8.3
+pymysql==1.0.3
+webdriver-manager==4.0.1
