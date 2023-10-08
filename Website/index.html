@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="../../Index/Image/shark_icon.ico" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha383-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+
+    <script src="index.js"></script>
+
+    <title>長榮大學課程查詢系統 | AI Center</title>
+
+</head>
+
+<body>
+
+    <div class="warp">
+
+        <nav class="main_nav navbar navbar-expand-xl navbar-light sticky-top">
+            <div class="container-fluid" style="flex-wrap: nowrap;">
+                <a class="navbar-brand" href="./"><strong>首頁</strong></a>
+
+                <div class="Search_group">
+                    <input type="search" class="Search_input" name="search" id="Search"
+                        onclick="Related_words(this.value)"
+                        oninput="Search('input',this.value);Related_words(this.value)" placeholder="搜尋課程、教師、系級及教室">
+                    <ul id="Search_ul" class="Search_ul"></ul>
+                </div>
+
+                <div>
+                    <img class="navbar-brand Contact" height="35" src="img/mail.png" alt="聯絡我們">
+
+                    <div class="Contact_view">
+                        <h2>聯絡我們</h2>
+                        <div class="Contact_word">
+                            <form id="Contact_form" action="./submit_a_question.php" method="post"
+                                onsubmit="return Submit_a_question();">
+                                <strong>您的CJCU信箱 : </strong>
+                                <input id="email" name="email" type="email">
+
+                                <strong>反映問題 : </strong>
+                                <textarea id="question" name="question" type="text"></textarea>
+                            </form>
+                        </div>
+                        <button form="Contact_form">送出</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <ul class="mainmenu">
+
+            <li class="First_level"><span>學年度<span></li>
+            <ul class="submenu year">
+            </ul>
+
+            <li class="First_level"><span>學期</span></li>
+            <ul class="submenu semester">
+            </ul>
+
+            <li class="First_level"><span>開課單位</span></li>
+            <ul class="submenu deps">
+                <li id="deps_1" class="Second_level"><span>系所課程</span></li>
+                <ul class="submenu deps_1"></ul>
+                <li id="deps_2" class="Second_level"><span>共同課程</span></li>
+                <ul class="submenu deps_2"></ul>
+            </ul>
+
+            <li class="First_level"><span>年級</span></li>
+            <ul class="submenu grade">
+            </ul>
+
+            <li class="First_level"><span>班級</span></li>
+            <ul class="submenu class_no">
+            </ul>
+
+            <li class="First_level" style="margin-bottom: 30%;" onclick="Search('clear','')"><span>清空</span></li>
+
+        </ul>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="row justify-content-center text-center">
+
+                        <div class="col-12" id="show_course">
+
+                            <ul class="nav nav-tabs" id="course_tabs" style="margin: 5px 0px;"></ul>
+
+                            <div class="tab-content" id="course_table"></div>
+
+                            <br>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="To_top_btn" class="To_top_btn" onclick="To_top()">
+        <img height="20" src="img/Arrows_up.png" alt="回到頂部">
+    </button>
+
+    <footer class="Footer"><strong class="Footer_word">Copyright 2022</strong></footer>
+
+</body>
+
+</html>
